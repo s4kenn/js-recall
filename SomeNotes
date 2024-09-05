@@ -30,3 +30,10 @@ Computer can't store all the floats || Calculation with floats is sometimes inac
 
 --> Math.round(2.2) == 2
 --> Math.round(2.5) == 3
+
+To round 2.2222 to 2 decimal places
+--> Math.round(2.2222 * 100) / 100
+or --> 2.2222.toFixed(2)
+
+--> Math.floor(2.22) // 2
+--> Math.ceil(2.22) // 3
