@@ -1,0 +1,32 @@
+HTML - CONTENT
+CSS - APPEARANCE/ STYLING
+JS - INTERACTIVE/ LOGIC
+
+What is JS?
+- Giving instructions to the computer
+- Making things interactive
+- The computer follows our instructions
+
+
+To get popup on screen - alert('hello');
+
+// We used JS to modify the webpage (Basically the entire body in this case)
+document.body.innerHTML = 'Hello';
+
+// Numbers and Math
+Operator Precedence and Associativity [ Use brackets to control the order of calculation ]
+
+(...)
+* /
++ -
+
+
+* / Same (L-R)
++ - Same (L-R)
+
+JS Behavior for Float
+Computer can't store all the floats || Calculation with floats is sometimes inaccurate
+0.1+0.2 = 0.30000....0004
+
+--> Math.round(2.2) == 2
+--> Math.round(2.5) == 3
