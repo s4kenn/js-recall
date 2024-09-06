@@ -57,3 +57,9 @@ text` --> some\ntext
 --> alert('some\ntext');
 
 Comment in JS --> // This is a comment
+Multi Line Comment -->  
+/*
+Hi
+*/
+
+Comment in HTML --> <!---->
