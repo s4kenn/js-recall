@@ -37,3 +37,21 @@ or --> 2.2222.toFixed(2)
 
 --> Math.floor(2.22) // 2
 --> Math.ceil(2.22) // 3
+
+--> typeof() // tells the type of a variable/ expression
+
+--> 'hello'+3 // converted to string 'hello3' (Type coercion)
+
+
+In JS, 3 ways to create a string
+'Hello'
+"Hello"
+`Hello` String Template Literals
+String Template Literals helps us with Interpolation
+`Items (${1+1}): $${(2095+799)/100}`
+In interpolation an expression can be embedded in a placeholder {}
+`some
+text` --> some\ntext
+
+--> 'I\'am doing an assignment'
+--> alert('some\ntext');
