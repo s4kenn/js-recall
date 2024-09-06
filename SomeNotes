@@ -63,3 +63,8 @@ Hi
 */
 
 Comment in HTML --> <!---->
+
+3 ways to create variable in JS
+let x = 10
+const x = 10 // We can't change its value later after assignment
+var x = 10
