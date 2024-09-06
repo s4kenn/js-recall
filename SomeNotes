@@ -55,3 +55,5 @@ text` --> some\ntext
 
 --> 'I\'am doing an assignment'
 --> alert('some\ntext');
+
+Comment in JS --> // This is a comment
