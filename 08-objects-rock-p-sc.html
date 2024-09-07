@@ -21,11 +21,17 @@
     </p>
 
     <script>
-      const scoreCard = {
+      let scoreCard = {
         wins: 0,
         losses: 0,
         ties: 0,
       };
+
+      // local storage only takes string
+      const savedScore = localStorage.getItem("score");
+      if (savedScore) {
+        scoreCard = JSON.parse(savedScore);
+      }
 
       function chooseRandom() {
         const randomNumber = Math.random();
@@ -100,6 +106,7 @@
             }
           }
         }
+        localStorage.setItem("score", JSON.stringify(scoreCard));
       }
     </script>
   </body>

@@ -23,7 +23,68 @@
       console.log(product);
 
       console.log(typeof product);
-      
+
+      const product2 = {
+        name: "shirt",
+        "delivery-time": "1 day",
+        rating: {
+          stars: 4.5,
+          count: 87,
+        },
+        fun: function function1() {
+          // Method (Function inside an object)
+          console.log("Hello");
+        },
+      };
+
+      // console is an object and log is a method
+
+      console.log(product2);
+      console.log(product2.name);
+      console.log(product2["name"]);
+      console.log(product2["delivery-time"]);
+      console.log(product2["rating"]["count"]);
+      console.log(product2.rating.stars);
+      product2.fun();
+
+      // JSON : Javascript Object Notation (Doesn't support functions)
+      // JSON is universal
+
+      // Built-in JSON Object helps us convert JS Object to JSON
+      const JSONstring = JSON.stringify(product2);
+      console.log(JSONstring);
+      console.log(JSON.parse(JSONstring));
+
+      // Local Storage Object in JS
+      // JS Autoboxing | JS automatically wraps a string in a special object
+      console.log("hello".length);
+      console.log("hello".toUpperCase());
+
+      // Objects are references
+      const obj1 = {
+        name: "John",
+      };
+      console.log(obj1.name);
+      const obj2 = obj1;
+      // Refenece copied
+      console.log(obj2.name);
+      obj2.name = "Ayesha";
+      console.log(obj1.name);
+      console.log(obj2.name);
+      const obj3 = {
+        name: "John",
+      };
+      console.log(obj1 === obj3); // Compared the references. That's why False
+
+      // Destructuring an Object (Shortcut)
+      const obj4 = {
+        message: "Good Job!",
+        price: 799,
+      };
+
+      const { message, price } = obj4; // When variable and value inside object has same name
+      console.log(message);
+      console.log(price);
     </script>
   </body>
 </html>

@@ -98,3 +98,5 @@ Objects: Groups multiple elements together
 
 // We use objects to make our code organized
 // Objects allow us to use multiple values together
+
+//  null means we intentionally want smthg to be empty
