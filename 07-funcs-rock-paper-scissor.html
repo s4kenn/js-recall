@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Rock Paper Scissors</title>
+  </head>
+  <body>
+    <p>Rock Paper Scissors</p>
+    <p>
+      <button onclick="choosePlay('Rock');">Rock</button>
+      <button onclick="choosePlay('Paper');">Paper</button>
+      <button onclick="choosePlay('Scissors');">Scissors</button>
+    </p>
+
+    <script>
+      function chooseRandom() {
+        const randomNumber = Math.random();
+        let computerMove = "";
+        if (randomNumber >= 0 && randomNumber < 1 / 3) {
+          computerMove = "Rock";
+        } else if (randomNumber >= 1 / 3 && computerMove < 2 / 3) {
+          computerMove = "Paper";
+        } else {
+          computerMove = "Scissors";
+        }
+
+        return computerMove;
+      }
+
+      function choosePlay(option) {
+        let computerOption = chooseRandom();
+        if (option === computerOption) {
+          alert(`You Chose ${option}. Computer Chose ${computerOption}. Tie`);
+        } else {
+          if (option === "Rock") {
+            if (computerOption === "Paper") {
+              alert(
+                `You Chose ${option}. Computer Chose ${computerOption}. You Lose`
+              );
+            } else {
+              alert(
+                `You Chose ${option}. Computer Chose ${computerOption}. You Win`
+              );
+            }
+          } else if (option === "Paper") {
+            if (computerOption === "Rock") {
+              alert(
+                `You Chose ${option}. Computer Chose ${computerOption}. You Win`
+              );
+            } else {
+              alert(
+                `You Chose ${option}. Computer Chose ${computerOption}. You Lose`
+              );
+            }
+          } else {
+            if (computerOption === "Rock") {
+              alert(
+                `You Chose ${option}. Computer Chose ${computerOption}. You Lose`
+              );
+            } else {
+              alert(
+                `You Chose ${option}. Computer Chose ${computerOption}. You Win`
+              );
+            }
+          }
+        }
+      }
+    </script>
+  </body>
+</html>
