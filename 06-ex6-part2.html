@@ -6,32 +6,43 @@
     <title>Coin Game</title>
   </head>
   <body>
-    <button
-      onclick="(result==='heads')?alert('You Won'):
-    alert('You Lost');"
-    >
-      heads
-    </button>
-    <button
-      onclick="if(result==='tails'){
-        alert('You Won');
-    }else{
-        alert('You Lost');
-    }"
-    >
-      tails
-    </button>
+    <button onclick="userOpt('heads');">heads</button>
+    <button onclick="userOpt('tails');">tails</button>
 
     <script>
-      const randomNumber = Math.random();
-      let result;
-      if (randomNumber < 1 / 2) {
-        result = "heads";
-      } else {
-        result = "tails";
+      let scoreCard = {
+        wins: 0,
+        losses: 0,
+      };
+
+      let savedScore = JSON.parse(localStorage.getItem("score"));
+      if (savedScore) {
+        scoreCard = savedScore;
       }
 
-      console.log(`${result}`);
+      function userOpt(user) {
+        const randomNumber = Math.random();
+        let result;
+        if (randomNumber < 1 / 2) {
+          result = "heads";
+        } else {
+          result = "tails";
+        }
+
+        console.log(result);
+        if (user == result) {
+          scoreCard.wins++;
+          alert(`You win! \n
+          Wins: ${scoreCard.wins} Loss: ${scoreCard.losses}`);
+        } else {
+          scoreCard.losses++;
+          alert(`You lose!\n
+          Wins: ${scoreCard.wins} Loss: ${scoreCard.losses}`);
+        }
+
+        let JSONresult = JSON.stringify(scoreCard);
+        localStorage.setItem("score", JSONresult);
+      }
     </script>
   </body>
 </html>
