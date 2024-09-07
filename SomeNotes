@@ -92,3 +92,9 @@ console.log(variable1) // Undefined
 
 --> ternary opeator 5>3?okay:no;
 Short circuit of && Operator
+
+
+Objects: Groups multiple elements together
+
+// We use objects to make our code organized
+// Objects allow us to use multiple values together
