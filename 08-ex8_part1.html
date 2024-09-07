@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+
+    <title>Objects</title>
+  </head>
+  <body>
+    <script>
+      const basketBall = {
+        price: 2095,
+      };
+      console.log(basketBall);
+      basketBall.price += 500;
+      console.log(basketBall);
+      basketBall["delivery-time"] = "3 days";
+      console.log(basketBall);
+
+      const product1 = {
+        name: "Product 1",
+        price: 500,
+      };
+      const product2 = {
+        name: "Product 2",
+        price: 450,
+      };
+
+      function comparePrice(product1, product2) {
+        if (product1.price < product2.price) {
+          return product1.name;
+        } else {
+          return product2.name;
+        }
+      }
+
+      console.log(comparePrice(product1, product2));
+
+      const product3 = {
+        name: "Tshirt",
+        price: 500,
+      };
+      const product4 = {
+        name: "Tshirt",
+        price: 700,
+      };
+
+      function isSameProduct(product3, product4) {
+        if (
+          product3.name == product4.name &&
+          product3.price == product4.price
+        ) {
+          return true;
+        } else return false;
+      }
+
+      console.log(isSameProduct(product3, product4));
+
+      console.log("Good Morning".toLowerCase());
+
+      let text = "test ";
+      console.log(text.repeat(5));
+    </script>
+  </body>
+</html>

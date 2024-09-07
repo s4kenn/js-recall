@@ -10,28 +10,28 @@
     <p>
       <button
         onclick="
-        res += '1';
+        updateRes('1');
         console.log(res);"
       >
         1
       </button>
       <button
         onclick="
-        res += '2';
+        updateRes('2');
         console.log(res);"
       >
         2
       </button>
       <button
         onclick="
-        res += '3';
+        updateRes('3');
         console.log(res);"
       >
         3
       </button>
       <button
         onclick="
-        res += '+';
+        updateRes('+');
         console.log(res);"
       >
         +
@@ -40,28 +40,28 @@
     <p>
       <button
         onclick="
-      res += '4';
+      updateRes('4');
       console.log(res);"
       >
         4
       </button>
       <button
         onclick="
-      res += '5';
+      updateRes('5');
       console.log(res);"
       >
         5
       </button>
       <button
         onclick="
-      res += '6';
+      updateRes('6');
       console.log(res);"
       >
         6
       </button>
       <button
         onclick="
-      res += '-';
+      updateRes('-');
       console.log(res);"
       >
         -
@@ -70,28 +70,28 @@
     <p>
       <button
         onclick="
-      res += '7';
+      updateRes('7');
       console.log(res);"
       >
         7
       </button>
       <button
         onclick="
-      res += '8';
+      updateRes('8');
       console.log(res);"
       >
         8
       </button>
       <button
         onclick="
-      res += '9';
+      updateRes('9');
       console.log(res);"
       >
         9
       </button>
       <button
         onclick="
-      res += '*';
+      updateRes('*');
       console.log(res);"
       >
         *
@@ -100,14 +100,14 @@
     <p>
       <button
         onclick="
-      res += '0';
+      updateRes('0');
       console.log(res);"
       >
         0
       </button>
       <button
         onclick="
-      res += '.';
+      updateRes('.');
       console.log(res);"
       >
         .
@@ -115,13 +115,13 @@
       <button
         onclick="
       res = eval(res);
-      console.log(res);"
+      console.log(res); localStorage.setItem('ans', res);"
       >
         =
       </button>
       <button
         onclick="
-      res += '/';
+      updateRes('/');
       console.log(res);"
       >
         /
@@ -131,7 +131,7 @@
       <button
         onclick="
       res = '';
-      console.log(res);"
+      console.log(res); localStorage.setItem('ans', res);"
       >
         Clear
       </button>
@@ -139,6 +139,14 @@
 
     <script>
       let res = "";
+      function updateRes(x) {
+        res = res + x;
+      }
+      let savedRes = localStorage.getItem("ans");
+      if (savedRes) {
+        res = savedRes;
+      }
+      console.log(res);
     </script>
   </body>
 </html>
