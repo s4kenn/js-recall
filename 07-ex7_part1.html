@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Functions</title>
+  </head>
+  <body>
+    <script>
+      function greet(name) {
+        if (!name) {
+          console.log("Hello stranger!");
+        } else {
+          console.log(`Hello ${name}`);
+        }
+      }
+      greet("Aditya");
+      greet("Tamanna");
+      greet();
+
+      function convertToFahrenheit(celsius) {
+        return celsius * (9 / 5) + 32;
+      }
+
+      function convertToCelsius(fahrenheit) {
+        return (fahrenheit - 32) * (5 / 9);
+      }
+
+      console.log(convertToCelsius(86));
+      console.log(convertToFahrenheit(25));
+
+      function convertTemperature(degrees, unit) {
+        if (unit === "C") console.log(convertToFahrenheit(degrees) + "F");
+        else if (unit === "F") console.log(convertToCelsius(degrees) + "C");
+        else console.log("Invalid");
+      }
+
+      convertTemperature(25, "C");
+      convertTemperature(86, "F");
+    </script>
+  </body>
+</html>
