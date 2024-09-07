@@ -81,3 +81,14 @@ true | false
 and operator &&
 or operator ||
 not operator !
+
+--> var doesn't follow the scoping roles
+
+'text'/5 = NaN
+--> NaN (Not a Number)
+
+let variable1;
+console.log(variable1) // Undefined
+
+--> ternary opeator 5>3?okay:no;
+Short circuit of && Operator
