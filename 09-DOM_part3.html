@@ -6,6 +6,20 @@
     <title>DOM</title>
   </head>
   <body>
-    
+    <p>Amazon Shipping Calculator</p>
+    <p>Orders under $40 = +$10 shipping.</p>
+    <p>Orders over $40 = FREE shipping.</p>
+    <input placeholder="Cost of order" class="js-cost-inp" />
+    <button onclick="calcTotal();">Calculate</button>
+    <p class="js-display-cost"></p>
+    <script>
+      function calcTotal() {
+        let s = parseFloat(document.querySelector(".js-cost-inp").value) || 0;
+        if (s < 40) {
+          s += 10;
+        }
+        document.querySelector(".js-display-cost").innerText = `$${s}`;
+      }
+    </script>
   </body>
 </html>

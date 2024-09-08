@@ -13,7 +13,7 @@
       <button onclick="choosePlay('Scissors');">Scissors</button>
     </p>
     <p class="js-result"></p>
-    <p>
+    <p class="js-score">
       You <span class="js-players-option"></span> -
       <span class="js-computers-option"></span> Computer
     </p>
@@ -29,6 +29,8 @@
         losses: 0,
         ties: 0,
       };
+
+      document.querySelector(".js-score").style.display = "none";
 
       // local storage only takes string
       const savedScore = localStorage.getItem("score");
@@ -97,6 +99,7 @@
         }
         localStorage.setItem("score", JSON.stringify(scoreCard));
         updateScoreDisplay();
+        document.querySelector(".js-score").style.display = "inline";
       }
       function resetScore() {
         scoreCard.wins = 0;
