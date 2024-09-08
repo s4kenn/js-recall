@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>DOM</title>
+  </head>
+  <body>
+    <input
+      onkeydown="getKeyDownInfo(event)"
+      class="js-input-name"
+      placeholder="Your Name"
+    />
+    <button onclick="displayName()">Submit</button>
+    <p class="js-show-name"></p>
+    <p>
+        <input class="js-input-something" onkeyup="displayTexts()" placeholder="Type Something">
+        <p class="js-while-type"></p>
+    </p>
+    <script>
+      function displayName() {
+        var name = document.querySelector(".js-input-name").value || "";
+        document.querySelector(".js-show-name").innerText = `Hello ${name}`;
+      }
+      function getKeyDownInfo(event) {
+        if (event.key === "Enter") {
+          displayName();
+        }
+      }
+
+      function displayTexts(){
+        let text = document.querySelector('.js-input-something').value || "";
+        document.querySelector(".js-while-type").innerText=text;
+      }
+
+    </script>
+  </body>
+</html>

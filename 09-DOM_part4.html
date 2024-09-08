@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <button>9a</button>
+    <button class="js-btn">9b</button>
+    <p>
+      <button onclick="showDetails('heads')" ;>heads</button>
+      <button onclick="showDetails('tails')" ;>tails</button>
+    </p>
+    <p class="js-p"></p>
+    
+    <script>
+      console.log(document.querySelector("button"));
+      document.querySelector(".js-btn").innerHTML = "9b Done!";
+      function showDetails(userClick) {
+        if (userClick == "heads") {
+          document.querySelector(".js-p").innerText = `You chose: ${userClick}`;
+        } else {
+          document.querySelector(".js-p").innerText = `You chose: ${userClick}`;
+        }
+      }
+    </script>
+  </body>
+</html>

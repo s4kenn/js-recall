@@ -103,3 +103,15 @@ Objects: Groups multiple elements together
 
 Document Object Model --> DOM
 // HTML elements are js objects
+
+--> clicks,keydowns => events
+--> onclick, onkeydown => event listeners
+--> onscroll => scrolling
+--> onmouseenter => hovering over
+--> onmouseleave => stop hovering over
+
+
+--> Number('123')
+--> String(25)
+--> '25'-5=20
+--> '25'+10=2510
