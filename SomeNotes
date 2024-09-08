@@ -100,3 +100,6 @@ Objects: Groups multiple elements together
 // Objects allow us to use multiple values together
 
 //  null means we intentionally want smthg to be empty
+
+Document Object Model --> DOM
+// HTML elements are js objects

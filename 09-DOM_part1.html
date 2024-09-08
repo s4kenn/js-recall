@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>DOM</title>
+  </head>
+  <body>
+    <p>YouTube Subscribe Button</p>
+    <button onclick="changeStatus();" class="js-sub-btn">Subscribe</button>
+    <script>
+      function changeStatus() {
+        let status = document.querySelector(".js-sub-btn").innerText;
+        if (status === "Subscribe") {
+          document.querySelector(".js-sub-btn").innerText = "Subscribed";
+        } else {
+          document.querySelector(".js-sub-btn").innerText = "Subscribe";
+        }
+      }
+    </script>
+  </body>
+</html>
