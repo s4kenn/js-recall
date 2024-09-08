@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Calculator</title>
+  </head>
+  <body>
+    <p>Calculator</p>
+    <p class="js-display"></p>
+    <p>
+      <button
+        onclick="
+        updateRes('1');
+        displayResult();
+        "
+      >
+        1
+      </button>
+      <button
+        onclick="
+        updateRes('2');
+        displayResult();
+        "
+      >
+        2
+      </button>
+      <button
+        onclick="
+        updateRes('3');
+        displayResult();
+        "
+      >
+        3
+      </button>
+      <button
+        onclick="
+        updateRes('+');
+        displayResult();
+        "
+      >
+        +
+      </button>
+    </p>
+    <p>
+      <button
+        onclick="
+      updateRes('4');
+      displayResult();
+      "
+      >
+        4
+      </button>
+      <button
+        onclick="
+      updateRes('5');
+      displayResult();
+      "
+      >
+        5
+      </button>
+      <button
+        onclick="
+      updateRes('6');
+      displayResult();
+      "
+      >
+        6
+      </button>
+      <button
+        onclick="
+      updateRes('-');
+      displayResult();
+      "
+      >
+        -
+      </button>
+    </p>
+    <p>
+      <button
+        onclick="
+      updateRes('7');
+      displayResult();
+      "
+      >
+        7
+      </button>
+      <button
+        onclick="
+      updateRes('8');
+      displayResult();
+      "
+      >
+        8
+      </button>
+      <button
+        onclick="
+      updateRes('9');
+      displayResult();
+      "
+      >
+        9
+      </button>
+      <button
+        onclick="
+      updateRes('*');
+      displayResult();
+      "
+      >
+        *
+      </button>
+    </p>
+    <p>
+      <button
+        onclick="
+      updateRes('0');
+      displayResult();
+      "
+      >
+        0
+      </button>
+      <button
+        onclick="
+      updateRes('.');
+      displayResult();
+      "
+      >
+        .
+      </button>
+      <button
+        onclick="
+      res = eval(res);
+      localStorage.setItem('ans', res);
+      displayResult();"
+        
+      >
+        =
+      </button>
+      <button
+        onclick="
+      updateRes('/');
+      displayResult();
+
+      "
+      >
+        /
+      </button>
+    </p>
+    <p>
+      <button
+        onclick="
+      res = '';
+       localStorage.setItem('ans', res);
+      displayResult();
+      "
+      >
+        Clear
+      </button>
+    </p>
+
+    <script>
+      let res = "";
+      function updateRes(x) {
+        res = res + x;
+      }
+      let savedRes = localStorage.getItem("ans");
+      if (savedRes) {
+        res = savedRes;
+      }
+      function displayResult() {
+        document.querySelector(".js-display").innerText = res;
+      }
+      displayResult();
+    </script>
+  </body>
+</html>
