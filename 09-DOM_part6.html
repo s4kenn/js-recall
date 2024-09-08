@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Cart</title>
+  </head>
+  <body>
+    <p>Cart Quantity</p>
+    <button onclick="displayFunc()">Show Quantity</button>
+    <button
+      onclick="if(cartQuantity+1>10){
+        displayFuncExceed(1);
+      }else{
+        cartQuantity=cartQuantity+1;
+        displayFunc();
+        saveInStorage();
+      }"
+    >
+      Add to Cart
+    </button>
+    <button
+      onclick="if(cartQuantity+2>10){
+        displayFuncExceed(2);
+      }else{
+        cartQuantity=cartQuantity+2;
+        displayFunc();
+        saveInStorage();
+       } "
+    >
+      +2
+    </button>
+    <button
+      onclick="if(cartQuantity+3>10){
+        displayFuncExceed(3);
+      }else{
+        cartQuantity=cartQuantity+3;
+        displayFunc();
+        saveInStorage(); }"
+    >
+      +3
+    </button>
+    <button
+      onclick="if(cartQuantity+4>10){
+        displayFuncExceed(4);
+      }else{
+        cartQuantity+=4; 
+        displayFunc();
+        saveInStorage();}"
+    >
+      +4
+    </button>
+    <button
+      onclick="if(cartQuantity+5>10){
+        displayFuncExceed(5);
+      }else{
+        cartQuantity+=5;
+        displayFunc();
+        saveInStorage(); }"
+    >
+      +5
+    </button>
+    <button
+      onclick="if(cartQuantity-1<0){
+       displayFuncNotExceed();
+      }else{
+        cartQuantity--;
+        displayFunc();
+        saveInStorage(); }"
+    >
+      Remove from Cart
+    </button>
+    <button
+      onclick="if(cartQuantity-2<0){
+        displayFuncNotExceed();
+      }else{
+        cartQuantity-=2;
+        displayFunc();
+        saveInStorage(); }"
+    >
+      -2
+    </button>
+    <button
+      onclick="if(cartQuantity-3<0){
+        displayFuncNotExceed();
+      }else{
+        cartQuantity-=3;
+        displayFunc();
+        saveInStorage(); }"
+    >
+      -3
+    </button>
+    <button onclick="cartQuantity=0; ">Reset Cart</button>
+
+    <p class="display-quantity"></p>
+
+    <script>
+      let cartQuantity = 0;
+      let savedCart = String(localStorage.getItem("cart"));
+      if (savedCart) {
+        cartQuantity = Number(savedCart);
+      }
+
+      displayFunc();
+      function displayFunc() {
+        document.querySelector(
+          ".display-quantity"
+        ).innerText = `Items in Cart: ${cartQuantity}`;
+      }
+      function displayFuncExceed(num) {
+        document.querySelector(
+          ".display-quantity"
+        ).innerText = `Can't add ${num} item(s) in cart \nItems in Cart: ${cartQuantity}`;
+      }
+      function displayFuncNotExceed() {
+        document.querySelector(
+          ".display-quantity"
+        ).innerText = `No items in Cart \nItems in Cart: ${cartQuantity}`;
+      }
+      function saveInStorage() {
+        localStorage.setItem("cart", String(cartQuantity));
+      }
+    </script>
+  </body>
+</html>
