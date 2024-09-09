@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Todo List</title>
+  </head>
+  <body>
+    <p>Todo List Practice</p>
+    <p>
+      <input
+        onkeydown="catchEvent(event)"
+        class="js-input"
+        placeholder="Todo name"
+      />
+      <button onclick="addInTodoList()">Add</button>
+    </p>
+    <p class="js-display-list"></p>
+    <script>
+      let myTodoList = [];
+
+      let toDoArray = localStorage.getItem("todoList");
+      if (toDoArray) {
+        let savedList = JSON.parse(toDoArray);
+        myTodoList = savedList;
+        displayList();
+      }
+
+      function addInTodoList() {
+        const task = document.querySelector(".js-input").value.trim();
+        if (!task) return;
+        myTodoList.push(task);
+        displayList();
+        saveToLocalStorage();
+        document.querySelector(".js-input").value = "";
+      }
+      function catchEvent(event) {
+        if (event.key === "Enter") {
+          addInTodoList();
+        }
+      }
+      function saveToLocalStorage() {
+        const toDoString = JSON.stringify(myTodoList);
+        localStorage.setItem("todoList", toDoString);
+      }
+      function displayList() {
+        let list = "";
+        for (let i = 0; i < myTodoList.length; i++) {
+          const html = `<p>${myTodoList[i]}</p>`; // Generated HTML
+          list += html;
+        }
+        document.querySelector(".js-display-list").innerHTML = list;
+      }
+    </script>
+  </body>
+</html>
