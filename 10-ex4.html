@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>DOM</title>
+    <style>
+      .amz-p {
+        font-family: Arial;
+      }
+      .uber-p {
+        font-family: Arial;
+      }
+      .amz-btn {
+        background-color: rgb(255, 216, 20);
+        color: black;
+        border: none;
+        height: 30px;
+        width: 150px;
+        font-size: 15px;
+        border-radius: 20px;
+        cursor: pointer;
+      }
+      .uber-btn1 {
+        background-color: black;
+        color: white;
+        border: none;
+        width: 110px;
+        height: 30px;
+        border-radius: 5px;
+        cursor: pointer;
+        margin-right: 10px;
+      }
+      .uber-btn2 {
+        background-color: rbg(230, 230, 230);
+        color: black;
+        border: none;
+        width: 140px;
+        height: 30px;
+        border-radius: 5px;
+        cursor: pointer;
+        font-weight: bold;
+      }
+    </style>
+  </head>
+  <body>
+    <p class="amz-p">Amazon Button</p>
+    <p>
+      <button class="amz-btn">Add to Cart</button>
+    </p>
+    <p class="uber-p">Uber Buttons</p>
+    <p>
+      <button class="uber-btn1">Request now</button>
+      <button class="uber-btn2">Schedule for later</button>
+    </p>
+    <p>
+      <button class="js-button">Test</button>
+    </p>
+    <script>
+      console.log(
+        document.querySelector(".js-button").classList.contains("js-button")
+      );
+    </script>
+  </body>
+</html>

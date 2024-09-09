@@ -1,0 +1,227 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Calculator</title>
+    <style>
+      body {
+        background-color: black;
+        color: white;
+        font-family: Arial;
+      }
+      .display-css {
+        font-size: 40px;
+      }
+      .left-btn {
+        width: 60px;
+        height: 60px;
+        border-radius: 50px;
+        font-size: 30px;
+        cursor: pointer;
+        background-color: rgb(51, 51, 51);
+        color: white;
+        border: none;
+        text-align: center;
+      }
+      .right-btn {
+        width: 60px;
+        height: 60px;
+        border-radius: 50px;
+        font-size: 30px;
+        cursor: pointer;
+        background-color: rgb(254, 160, 10);
+        color: white;
+        border: none;
+        text-align: center;
+      }
+      .clear-css {
+        font-size: 15px;
+      }
+    </style>
+  </head>
+  <body>
+    <!-- <p>Calculator</p> -->
+    <p class="js-display display-css"></p>
+    <p>
+      <button
+        class="left-btn"
+        onclick="
+        updateRes('1');
+        displayResult();
+        "
+      >
+        1
+      </button>
+      <button
+        class="left-btn"
+        onclick="
+        updateRes('2');
+        displayResult();
+        "
+      >
+        2
+      </button>
+      <button
+        class="left-btn"
+        onclick="
+        updateRes('3');
+        displayResult();
+        "
+      >
+        3
+      </button>
+      <button
+        class="right-btn"
+        onclick="
+        updateRes('+');
+        displayResult();
+        "
+      >
+        +
+      </button>
+    </p>
+    <p>
+      <button
+        class="left-btn"
+        onclick="
+      updateRes('4');
+      displayResult();
+      "
+      >
+        4
+      </button>
+      <button
+        class="left-btn"
+        onclick="
+      updateRes('5');
+      displayResult();
+      "
+      >
+        5
+      </button>
+      <button
+        class="left-btn"
+        onclick="
+      updateRes('6');
+      displayResult();
+      "
+      >
+        6
+      </button>
+      <button
+        class="right-btn"
+        onclick="
+      updateRes('-');
+      displayResult();
+      "
+      >
+        -
+      </button>
+    </p>
+    <p>
+      <button
+        class="left-btn"
+        onclick="
+      updateRes('7');
+      displayResult();
+      "
+      >
+        7
+      </button>
+      <button
+        class="left-btn"
+        onclick="
+      updateRes('8');
+      displayResult();
+      "
+      >
+        8
+      </button>
+      <button
+        class="left-btn"
+        onclick="
+      updateRes('9');
+      displayResult();
+      "
+      >
+        9
+      </button>
+      <button
+        class="right-btn"
+        onclick="
+      updateRes('*');
+      displayResult();
+      "
+      >
+        *
+      </button>
+    </p>
+    <p>
+      <button
+        class="left-btn"
+        onclick="
+      updateRes('0');
+      displayResult();
+      "
+      >
+        0
+      </button>
+      <button
+        class="left-btn"
+        onclick="
+      updateRes('.');
+      displayResult();
+      "
+      >
+        .
+      </button>
+      <button
+        class="left-btn"
+        onclick="
+      res = eval(res);
+      localStorage.setItem('ans', res);
+      displayResult();"
+      >
+        =
+      </button>
+      <button
+        class="right-btn"
+        onclick="
+      updateRes('/');
+      displayResult();
+
+      "
+      >
+        /
+      </button>
+    </p>
+    <p>
+      <button
+        class="left-btn clear-css"
+        onclick="
+      res = '';
+       localStorage.setItem('ans', res);
+      displayResult();
+      "
+      >
+        Clear
+      </button>
+    </p>
+
+    <script>
+      let res = "";
+      function updateRes(x) {
+        res = res + x;
+      }
+      let savedRes = localStorage.getItem("ans");
+      if (savedRes) {
+        res = savedRes;
+      }
+      function displayResult() {
+        document.querySelector(".js-display").innerText = res;
+      }
+      displayResult();
+    </script>
+  </body>
+</html>
