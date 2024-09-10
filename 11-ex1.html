@@ -7,7 +7,7 @@
   </head>
   <body>
     <script>
-      const arr = [10, 20, 30];
+      //   const arr = [10, 20, 30];
       //   console.log(arr);
       //   let n = arr.length;
       //   arr[n - 1] = 99;
@@ -32,58 +32,93 @@
       //     console.log(i);
       //     i = i - 1;
       //   }
-      function addOne(arr) {
-        let newArr = [];
+      //   function addOne(arr) {
+      //     let newArr = [];
+      //     for (let i = 0; i < arr.length; i++) {
+      //       newArr.push(arr[i] + 1);
+      //     }
+      //     console.log(newArr);
+      //   }
+      //   addOne(arr);
+      //   addOne([1, 2, 3]);
+      //   addOne([-2, -1, 0, 99]);
+      //   function addNum(arr, k) {
+      //     let newArr = [];
+      //     for (let i = 0; i < arr.length; i++) {
+      //       newArr.push(arr[i] + k);
+      //     }
+      //     console.log(newArr);
+      //   }
+      //   addNum([1, 2, 3], 2);
+      //   addNum([1, 2, 3], 3);
+      //   addNum([-2, -1, 0, 99], 2);
+      //   function addArray(array1, array2) {
+      //     let result = [];
+      //     let n = array1.length;
+      //     let m = array2.length;
+      //     let i = 0;
+      //     let j = 0;
+      //     while (i < n && j < m) {
+      //       result.push(array1[i] + array2[j]);
+      //       i++;
+      //       j++;
+      //     }
+      //     while (i < n) {
+      //       result.push(array1[i]);
+      //       i++;
+      //     }
+      //     while (j < m) {
+      //       result.push(array2[j]);
+      //       j++;
+      //     }
+      //     console.log(result);
+      //   }
+      //   addArray([2, 2, 5], [5, 7, 9, 11]);
+      //   function countPositives(arr) {
+      //     let n = arr.length;
+      //     let count = 0;
+      //     for (let i = 0; i < n; i++) {
+      //       if (arr[i] > 0) count++;
+      //     }
+      //     console.log(count);
+      //   }
+      //   countPositives([1, -3, 5]);
+      //   countPositives([-2, 3, -5, 7, 10]);
+      //   function minMax(arr) {
+      //     let n = arr.length;
+      //     if (n == 0) {
+      //       console.log(`Min: ${null} Max: ${null}`);
+      //       return;
+      //     }
+      //     let min = arr[0];
+      //     let max = arr[0];
+      //     for (let i = 1; i < n; i++) {
+      //       if (arr[i] > max) {
+      //         max = arr[i];
+      //       }
+      //       if (arr[i] < min) {
+      //         min = arr[i];
+      //       }
+      //     }
+      //     console.log(`Min: ${min} Max: ${max}`);
+      //   }
+      //   minMax([1, -3, 5]);
+      //   minMax([-2, 3, -5, 7, 10]);
+      //   minMax([]);
+      //   minMax([3]);
+      function countWords(arr) {
+        let obj = {};
         for (let i = 0; i < arr.length; i++) {
-          newArr.push(arr[i] + 1);
+          let word = arr[i];
+          if (obj[word]) {
+            obj[word]++;
+          } else {
+            obj[word] = 1;
+          }
         }
-        console.log(newArr);
+        console.log(obj);
       }
-      addOne(arr);
-      addOne([1, 2, 3]);
-      addOne([-2, -1, 0, 99]);
-      function addNum(arr, k) {
-        let newArr = [];
-        for (let i = 0; i < arr.length; i++) {
-          newArr.push(arr[i] + k);
-        }
-        console.log(newArr);
-      }
-      addNum([1, 2, 3], 2);
-      addNum([1, 2, 3], 3);
-      addNum([-2, -1, 0, 99], 2);
-      function addArray(array1, array2) {
-        let result = [];
-        let n = array1.length;
-        let m = array2.length;
-        let i = 0;
-        let j = 0;
-        while (i < n && j < m) {
-          result.push(array1[i] + array2[j]);
-          i++;
-          j++;
-        }
-        while (i < n) {
-          result.push(array1[i]);
-          i++;
-        }
-        while (j < m) {
-          result.push(array2[j]);
-          j++;
-        }
-        console.log(result);
-      }
-      addArray([2, 2, 5], [5, 7, 9, 11]);
-      function countPositives(arr) {
-        let n = arr.length;
-        let count = 0;
-        for (let i = 0; i < n; i++) {
-          if (arr[i] > 0) count++;
-        }
-        console.log(count);
-      }
-      countPositives([1, -3, 5]);
-      countPositives([-2, 3, -5, 7, 10]);
+      countWords(["apple", "grape", "apple", "apple"]);
     </script>
   </body>
 </html>
