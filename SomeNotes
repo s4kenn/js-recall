@@ -93,13 +93,12 @@ console.log(variable1) // Undefined
 --> ternary opeator 5>3?okay:no;
 Short circuit of && Operator
 
-
 Objects: Groups multiple elements together
 
 // We use objects to make our code organized
 // Objects allow us to use multiple values together
 
-//  null means we intentionally want smthg to be empty
+// null means we intentionally want smthg to be empty
 
 Document Object Model --> DOM
 // HTML elements are js objects
@@ -110,8 +109,16 @@ Document Object Model --> DOM
 --> onmouseenter => hovering over
 --> onmouseleave => stop hovering over
 
-
 --> Number('123')
 --> String(25)
 --> '25'-5=20
 --> '25'+10=2510
+
+// Arrays are references just like objects
+const arr1=[10];
+const arr2=arr1;
+// Both points to same reference
+arr2.push(20);
+if we print arr1 --> [10,20]
+// To avoid this
+const arr2=arr1.slice();
