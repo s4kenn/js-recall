@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Advanced Functions</title>
+  </head>
+  <body>
+    <script>
+      //   greeting();
+      //   function greeting() {
+      //     console.log("Hello1");
+      //   }
+      //   const num = 2;
+      //   // functions are also values like variables
+      //   const f1 = function () {
+      //     // Anonymous Function
+      //     console.log("Hello2");
+      //   };
+      //   console.log(f1);
+      //   console.log(typeof f1);
+      //   f1();
+      //   const ob1 = {
+      //     num: 2,
+      //     fun: function () {
+      //       console.log("Hello3"); // Function inside an object is method
+      //     },
+      //   };
+      //   ob1.fun();
+      //   function run(param) { // Callback Function
+      //     param;
+      //   }
+      //   run(greeting()); // Passing a function in another function
+
+      // Asynchronous Code (The computer won't wait for this line to execute and it will go to next line, when the time finishes computer comes back and executes this code)
+
+      //   setTimeout(function () {
+      //     console.log("Timeout");
+      //     console.log("Timeout2");
+      //   }, 3000); // Function
+      //   console.log("next line");
+
+      // Adv: Doesn't block our code for 3 seconds
+      // setInterval(function () {
+      //   console.log("Interval");
+      // }, 3000); // Runs the function every 3 second
+      // console.log("Line 2");
+      let array = ["Make Dinner", "Watch Youtube", "Wash Dishes"].forEach(
+        function (value, index) {
+          if (value === "Watch Youtube") return;
+          console.log(value, index);
+        }
+      );
+    </script>
+  </body>
+</html>

@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Todo List</title>
+    <style>
+      body {
+        font-family: Arial;
+      }
+      .css-input {
+        width: 150px;
+        height: 30px;
+      }
+      .css-date {
+        width: 135px;
+        height: 32px;
+      }
+      .css-btn {
+        width: 80px;
+        height: 35px;
+        background-color: green;
+        border: none;
+        color: white;
+        cursor: pointer;
+      }
+      .del-btn {
+        background-color: red;
+        cursor: pointer;
+      }
+      .todo-grid,
+      .todo-input-grid {
+        display: grid;
+        grid-template-columns: 170px 150px 100px;
+        column-gap: 10px;
+        row-gap: 10px;
+        align-items: center;
+      }
+    </style>
+  </head>
+  <body>
+    <p>Todo List</p>
+    <div class="todo-input-grid">
+      <input
+        onkeydown="catchEvent(event)"
+        class="css-input js-input"
+        placeholder="Todo name"
+      />
+      <input class="js-date css-date" type="date" />
+      <button class="css-btn" onclick="addInTodoList()">Add</button>
+    </div>
+    <p class="js-display-list todo-grid"></p>
+    <script>
+      let myTodoList = [{ task: "Make Dinner", date: "10/07/2023" }];
+
+      let toDoArray = localStorage.getItem("todoList");
+      if (toDoArray) {
+        let savedList = JSON.parse(toDoArray);
+        myTodoList = savedList;
+        displayList();
+      }
+
+      function addInTodoList() {
+        const task = document.querySelector(".js-input").value.trim();
+        const date = document.querySelector(".js-date").value;
+        if (!task) return;
+        if (!date) return;
+        myTodoList.push({ task: task, date: date });
+        displayList();
+        saveToLocalStorage();
+        document.querySelector(".js-input").value = "";
+        document.querySelector(".js-date").value = "";
+      }
+      function catchEvent(event) {
+        if (event.key === "Enter") {
+          addInTodoList();
+        }
+      }
+      function saveToLocalStorage() {
+        const toDoString = JSON.stringify(myTodoList);
+        localStorage.setItem("todoList", toDoString);
+      }
+      function displayList() {
+        let list = "";
+        myTodoList.forEach(function (todoObject, index) {
+          const task = todoObject.task;
+          const date = todoObject.date;
+          const html = `
+            <div>${task}</div> 
+            <div>${date}</div>
+            <button class="css-btn del-btn" onclick="myTodoList.splice(${index},1);
+            displayList();
+            saveToLocalStorage();">Delete</button>
+            `; // Generated HTML
+          list += html;
+        });
+        document.querySelector(".js-display-list").innerHTML = list;
+      }
+    </script>
+  </body>
+</html>
