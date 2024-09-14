@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Advanced Function Concepts</title>
+  </head>
+  <body>
+    <button class="js-btn" onclick="changeDom()">Start</button>
+    <script>
+      let add = function () {
+        console.log(2 + 3);
+      };
+      add();
+      add();
+      function runTwice(func) {
+        func;
+      }
+      runTwice(add());
+      runTwice(add());
+      function changeDom() {
+        const btn = document.querySelector(".js-btn");
+        let status = btn.innerHTML;
+        if (status === "Start") {
+          setTimeout(function () {
+            btn.innerText = "Finished";
+          }, 1000);
+        } else {
+          btn.innerText = "Start";
+        }
+      }
+    </script>
+  </body>
+</html>
