@@ -6,7 +6,7 @@
     <title>Advanced Functions</title>
   </head>
   <body>
-    <button onclick="addToCart()" class="js-btn">Add to cart</button>
+    <button class="js-btn">Add to cart</button>
     <p class="js-display"></p>
     <script>
       let timeoutId;
@@ -14,10 +14,13 @@
         const p = document.querySelector(".js-display");
         p.innerHTML = "Added";
         clearTimeout(timeoutId);
-        timeoutId = setTimeout(function () {
+        timeoutId = setTimeout(() => {
           p.innerHTML = "";
         }, 2000);
       }
+      document.querySelector(".js-btn").addEventListener("click", () => {
+        addToCart();
+      });
     </script>
   </body>
 </html>

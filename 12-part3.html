@@ -6,7 +6,7 @@
     <title>Advanced Function Concepts</title>
   </head>
   <body>
-    <button class="js-btn" onclick="changeDom()">Start</button>
+    <button class="js-btn">Start</button>
     <script>
       let add = function () {
         console.log(2 + 3);
@@ -22,13 +22,16 @@
         const btn = document.querySelector(".js-btn");
         let status = btn.innerHTML;
         if (status === "Start") {
-          setTimeout(function () {
+          setTimeout(() => {
             btn.innerText = "Finished";
           }, 1000);
         } else {
           btn.innerText = "Start";
         }
       }
+      document.querySelector(".js-btn").addEventListener("click", () => {
+        changeDom();
+      });
     </script>
   </body>
 </html>

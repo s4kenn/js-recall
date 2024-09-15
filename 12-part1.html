@@ -45,7 +45,8 @@
         margin-top: 60px;
       }
       .reset-btn,
-      .auto-btn {
+      .auto-btn,
+      .css-btn {
         background-color: white;
         color: black;
         font-family: Arial;
@@ -55,18 +56,22 @@
         border: none;
         cursor: pointer;
       }
+      .css-btn {
+        width: 60px;
+        margin-left: 5px;
+      }
     </style>
   </head>
   <body>
     <p class="title">Rock Paper Scissors</p>
     <p class="css-options">
-      <button class="move-btn" onclick="choosePlay('Rock');">
+      <button class="move-btn js-rock-btn">
         <img class="move-icon" src="images/Rock-emoji.png" alt="Rock" />
       </button>
-      <button class="move-btn" onclick="choosePlay('Paper');">
+      <button class="move-btn js-paper-btn">
         <img class="move-icon" src="images/Paper-emoji.png" alt="Paper" />
       </button>
-      <button class="move-btn" onclick="choosePlay('Scissors');">
+      <button class="move-btn js-scissors-btn">
         <img class="move-icon" src="images/Scissors-emoji.png" alt="Scissors" />
       </button>
     </p>
@@ -76,8 +81,9 @@
       Wins: <span class="js-wins"></span>, Losses:
       <span class="js-looses"></span>, Ties: <span class="js-ties"></span>
     </p>
-    <button class="reset-btn" onclick="resetScore();">Reset Score</button>
-    <button class="auto-btn js-auto-btn" onclick="autoplay();">Autoplay</button>
+    <button class="reset-btn js-reset">Reset Score</button>
+    <button class="auto-btn js-auto-btn">Autoplay</button>
+    <p class="js-reset-confirmation"></p>
 
     <script>
       let scoreCard = {
@@ -92,9 +98,7 @@
         scoreCard = JSON.parse(savedScore);
       }
 
-      document.querySelector(".js-wins").innerText = scoreCard.wins;
-      document.querySelector(".js-looses").innerText = scoreCard.losses;
-      document.querySelector(".js-ties").innerText = scoreCard.ties;
+      updateScoreDisplay();
 
       function updateScoreDisplay() {
         document.querySelector(".js-wins").textContent = scoreCard.wins;
@@ -162,6 +166,7 @@
         alert(`Scorecard reset`);
         localStorage.setItem("score", JSON.stringify(scoreCard));
         updateScoreDisplay();
+        autoplay();
         document.querySelector(".js-score").classList.remove("show-score");
         document.querySelector(".js-result").classList.add("css-score");
       }
@@ -170,7 +175,7 @@
       function autoplay() {
         if (document.querySelector(".js-auto-btn").innerText === "Autoplay") {
           document.querySelector(".js-auto-btn").innerText = "Stop";
-          refreshIntervalId = setInterval(function () {
+          refreshIntervalId = setInterval(() => {
             playerMove = chooseRandom();
             choosePlay(playerMove);
           }, 700);
@@ -179,6 +184,53 @@
           clearInterval(refreshIntervalId);
         }
       }
+
+      document.querySelector(".js-rock-btn").addEventListener("click", () => {
+        choosePlay("Rock");
+      });
+
+      document.querySelector(".js-paper-btn").addEventListener("click", () => {
+        choosePlay("Paper");
+      });
+
+      document
+        .querySelector(".js-scissors-btn")
+        .addEventListener("click", () => {
+          choosePlay("Scissors");
+        });
+
+      document.querySelector(".js-reset").addEventListener("click", () => {
+        document.querySelector(".js-reset-confirmation").innerHTML = `
+        Are you sure you want to reset the score? <button class="css-btn js-yes-btn">Yes</button> <button class="css-btn js-no-btn">No</button>`;
+
+        document.querySelector(".js-yes-btn").addEventListener("click", () => {
+          resetScore();
+          document.querySelector(".js-reset-confirmation").innerHTML = "";
+        });
+
+        document.querySelector(".js-no-btn").addEventListener("click", () => {
+          document.querySelector(".js-reset-confirmation").innerHTML = "";
+        });
+      });
+
+      document.querySelector(".js-auto-btn").addEventListener("click", () => {
+        autoplay();
+      });
+
+      document.body.addEventListener("keydown", (event) => {
+        if (event.key === "r" || event.key === "R") {
+          choosePlay("Rock");
+        } else if (event.key === "p" || event.key === "P") {
+          choosePlay("Paper");
+        } else if (event.key === "s" || event.key === "S") {
+          choosePlay("Scissors");
+        } else if (event.key === "a" || event.key === "A") {
+          autoplay();
+        } else if (event.key === "/") {
+          resetScore();
+        }
+        console.log(event.key);
+      });
     </script>
   </body>
 </html>

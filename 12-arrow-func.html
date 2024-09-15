@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Arrow function</title>
+  </head>
+  <body>
+    <script>
+      //   let array = [
+      //     "Make Dinner",
+      //     "Complete Assignment",
+      //     "Watch Youtube",
+      //   ].forEach(function (value, index) {
+      //     console.log(value, index);
+      //   });
+      const regularFunction = function (param) {
+        console.log("Regular Function " + param);
+      };
+      // Shorter Way to write Functions (Arrow Functions)
+      const arrowFunction = (param) => {
+        console.log("Arrow Function " + param);
+      };
+      regularFunction("Bye");
+      arrowFunction("Bye");
+
+      // Arrow functions have a few shortcuts that regular functions dont have
+      const oneParam = (param) => {
+        console.log(param + 1);
+      };
+      oneParam(2);
+      const oneLine = () => 2 + 3; // One liner arrow function
+      console.log(oneLine());
+      let array = [
+        "Make Dinner",
+        "Complete Assignment",
+        "Watch Youtube",
+      ].forEach((value, index) => {
+        console.log(value, index);
+      });
+    </script>
+  </body>
+</html>

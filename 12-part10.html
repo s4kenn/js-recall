@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Practice</title>
+  </head>
+  <body>
+    <script>
+      function addNum(arr, num) {
+        return arr.map((value) => {
+          return value + num;
+        });
+      }
+      console.log(addNum([1, 2, 3], 2));
+      console.log(addNum([-2, -1, 0, 99], 2));
+      function removeEgg(foods) {
+        return foods.filter((value) => {
+          if (value === "egg") return false;
+          else return true;
+        });
+      }
+      console.log(removeEgg(["egg", "apple", "egg", "egg", "ham"]));
+      function removeEgg2(foods) {
+        let eggCount = 0;
+        return foods.filter((value) => {
+          if (value === "egg" && eggCount < 2) {
+            eggCount++;
+            return false;
+          } else return true;
+        });
+      }
+      console.log(removeEgg2(["egg", "apple", "egg", "egg", "ham"]));
+    </script>
+  </body>
+</html>

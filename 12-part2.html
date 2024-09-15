@@ -47,7 +47,7 @@
         placeholder="Todo name"
       />
       <input class="js-date css-date" type="date" />
-      <button class="css-btn" onclick="addInTodoList()">Add</button>
+      <button class="css-btn js-add-btn">Add</button>
     </div>
     <p class="js-display-list todo-grid"></p>
     <script>
@@ -82,20 +82,35 @@
       }
       function displayList() {
         let list = "";
-        myTodoList.forEach(function (todoObject, index) {
+        myTodoList.forEach((todoObject, index) => {
           const task = todoObject.task;
           const date = todoObject.date;
           const html = `
-            <div>${task}</div> 
+            <div>${task}</div>
             <div>${date}</div>
-            <button class="css-btn del-btn" onclick="myTodoList.splice(${index},1);
-            displayList();
-            saveToLocalStorage();">Delete</button>
+            <button class="css-btn del-btn">Delete</button>
             `; // Generated HTML
           list += html;
         });
         document.querySelector(".js-display-list").innerHTML = list;
+        document.querySelectorAll(".del-btn").forEach((deleteButton, index) => {
+          deleteButton.addEventListener("click", () => {
+            myTodoList.splice(index, 1);
+            displayList();
+            saveToLocalStorage();
+          });
+        });
       }
+      document.querySelector(".js-add-btn").addEventListener("click", () => {
+        addInTodoList();
+      });
+      document
+        .querySelector(".js-input")
+        .addEventListener("keydown", (event) => {
+          if (event.key === "Enter") {
+            addInTodoList();
+          }
+        });
     </script>
   </body>
 </html>

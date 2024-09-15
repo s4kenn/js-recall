@@ -6,18 +6,21 @@
     <title>Advanced Functions</title>
   </head>
   <body>
-    <button onclick="changeStatus()" class="js-btn">Start</button>
+    <button class="js-btn">Start</button>
     <script>
       function changeStatus() {
         const btn = document.querySelector(".js-btn");
         let status = btn.innerHTML;
         if (status === "Start") {
           btn.innerHTML = "Loading...";
-          setTimeout(function () {
+          setTimeout(() => {
             btn.innerHTML = "Finished";
           }, 1000);
         }
       }
+      document.querySelector(".js-btn").addEventListener("click", () => {
+        changeStatus();
+      });
     </script>
   </body>
 </html>
